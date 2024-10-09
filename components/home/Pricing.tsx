@@ -8,7 +8,7 @@ const Pricing = () => {
                 <h2 className="text-3xl font-bold text-center mb-8">Effective &amp; flexible pricing</h2>
                 <div className="grid md:grid-cols-3 gap-8">
                     {/* Card 1 */}
-                    <div className="bg-gray-900 border border-yellow-500 p-8 text-center rounded-lg">
+                    <div className="bg-gray-900 border border-primary p-8 text-center rounded-lg">
                         <h3 className="text-xl font-semibold mb-4">One Day Plan</h3>
                         <p className="text-4xl font-bold mb-4">$99 <span className="text-lg font-medium">/Month</span></p>
                         <p className="text-sm mb-4">AI Content generation website is a platform that utilizes artificial intelligences</p>
@@ -30,13 +30,13 @@ const Pricing = () => {
                                 <GiCheckMark className=" font-extrabold text-xl " />
                             </span> Weekly Events</li>
                         </ul>
-                        <button className="bg-transparent border border-yellow-500 text-yellow-500 py-2 px-4 rounded-lg hover:bg-yellow-500 hover:text-black transition">
+                        <button className="bg-transparent border border-primary text-primary py-2 px-4 rounded-lg hover:bg-primary hover:text-black transition">
                             Choose your plan
                         </button>
                     </div>
 
                     {/* Card 2 */}
-                    <div className="bg-yellow-500 text-black p-8 text-center rounded-lg">
+                    <div className="bg-primary text-black p-8 text-center rounded-lg">
                         <h3 className="text-xl font-semibold mb-4">One Day Plan</h3>
                         <p className="text-4xl font-bold mb-4">$99 <span className="text-lg font-medium">/Month</span></p>
                         <p className="text-sm mb-4">AI Content generation website is a platform that utilizes artificial intelligences</p>
@@ -63,7 +63,7 @@ const Pricing = () => {
                     </div>
 
                     {/* Card 3 */}
-                    <div className="bg-gray-900 border border-yellow-500 p-8 text-center rounded-lg">
+                    <div className="bg-gray-900 border border-primary p-8 text-center rounded-lg">
                         <h3 className="text-xl font-semibold mb-4">One Day Plan</h3>
                         <p className="text-4xl font-bold mb-4">$99 <span className="text-lg font-medium">/Month</span></p>
                         <p className="text-sm mb-4">AI Content generation website is a platform that utilizes artificial intelligences</p>
@@ -84,7 +84,7 @@ const Pricing = () => {
                                 <GiCheckMark className=" font-extrabold text-xl " />
                             </span> Weekly Events</li>
                         </ul>
-                        <button className="bg-transparent border border-yellow-500 text-yellow-500 py-2 px-4 rounded-lg hover:bg-yellow-500 hover:text-black transition">
+                        <button className="bg-transparent border border-primary text-primary py-2 px-4 rounded-lg hover:bg-primary hover:text-black transition">
                             Choose your plan
                         </button>
                     </div>

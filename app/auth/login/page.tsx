@@ -1,6 +1,32 @@
+'use client'
+import { useGetAllAdminQuery } from "@/redux/features/api/adminApi";
+import { useLoginUserMutation } from "@/redux/features/api/authApi";
 import Link from "next/link";
 
 export default function LoginPage() {
+
+    const {data} = useGetAllAdminQuery([])
+    const [loginUser] = useLoginUserMutation()
+
+const handleLoginUser= async()=>{
+    
+    const userData = {
+        email: "email.com",
+        password: "password"
+    }
+    const updatedData = {
+        id: 1,
+        data: userData
+    }
+
+    try {
+        const res = await loginUser(updatedData).unwrap()
+        console.log(res)
+    } catch (error) {
+        
+    }
+}
+
     return (
         <div className="min-h-screen bg-black flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">

@@ -32,7 +32,7 @@ export default function Navbar() {
                     <div className="grid bg-primary gap-y-1 text-black fixed top-16 px-8 pt-2 pb-12 rounded-md left-1 text-lg font-bold">
                         {menuItems.map((menuItem, index) => (
                             <div key={index}>
-                                <Link href={menuItem.path}>{menuItem.key}</Link>
+                                <Link href={menuItem.path} onClick={() => setIsMenuOpen(false)}>{menuItem.key}</Link>
                                 <hr className="border border-black" />
                             </div>
                         ))}
@@ -41,7 +41,7 @@ export default function Navbar() {
                     <div className="hidden md:flex gap-8 text-lg font-semibold">
                         {menuItems.map((menuItem, index) => (
                             <div key={index}>
-                                <Link href={menuItem.path} className="cursor-pointer">{menuItem.key}</Link>
+                                <Link href={menuItem.path} className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>{menuItem.key}</Link>
                             </div>
                         ))}
                     </div>
@@ -49,7 +49,7 @@ export default function Navbar() {
 
                 {/* Right side */}
                 <div>
-                    <Link href={`/dashboard/${"admin"}`} className="bg-primary text-black font-bold text-lg px-7 py-2 rounded mr-4">
+                    <Link href={`/dashboard/trainee`} className="bg-primary text-black font-bold text-lg px-7 py-2 rounded mr-4">
                         Dashboard
                     </Link>
                 </div>

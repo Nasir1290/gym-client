@@ -15,10 +15,10 @@ export default function NotFound() {
                         The page you are looking for doesn&apos;t exist.
                     </p>
 
-                    <div className="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
+                    <div className="flex items-center mt-4">
                         <Link
                             href={'/'}
-                            className="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-primary rounded-lg shrink-0 sm:w-auto hover:bg-primary/80"
+                            className=" bg-primary text-black flex justify-center items-center px-4 py-2 rounded-md font-bold"
                         >
                             Take me home
                         </Link>

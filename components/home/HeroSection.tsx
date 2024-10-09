@@ -5,7 +5,7 @@ import HeroImage from "@/public/assets/images/heroImage.jpg";
 const HeroSection = () => {
     return (
         <div className="w-full bg-black text-white">
-            <div className=" pb-8 mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-4 py-5 md:py-10">
+            <div className=" container pb-8 mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-4 py-5 md:py-10">
                 {/* Left Section: Text */}
                 <div className="md:w-1/2 flex flex-col items-start justify-center text-center md:text-left">
                     <h1 className="text-4xl md:text-6xl font-bold mb-4">
