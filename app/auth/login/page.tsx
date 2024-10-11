@@ -28,6 +28,7 @@ export default function LoginPage() {
                 password
             };
             const res = await loginUser(loginData).unwrap();
+            console.log(res)
 
             if (res.success) {
                 toast.success(res.message);

@@ -42,7 +42,7 @@ const Contact = () => {
             </section>
 
             {/* Contact Information Section */}
-            <section className="grid grid-cols-1 md:grid-cols-3 gap-6 py-16">
+            <section className="grid grid-cols-1 md:grid-cols-3 container mx-auto gap-6 py-16">
                 <motion.div
                     className="bg-gray-900 p-6 rounded-lg shadow-lg text-center"
                     data-aos="fade-up"
