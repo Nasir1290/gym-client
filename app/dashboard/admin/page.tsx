@@ -1,10 +1,10 @@
 import React from 'react'
-import AdminProfilePage from './profile/page'
+import TrainerManagement from './trainers/page'
 
 export default function AdminPage() {
   return (
     <div>
-        <AdminProfilePage/>
+      <TrainerManagement />
       </div>
   )
 }

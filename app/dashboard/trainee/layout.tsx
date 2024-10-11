@@ -37,6 +37,13 @@ export default function AdminLayout({ children }: Readonly<Children>) {
     }, [ router ]);
 
 
+    const handleLogout = () => {
+        router.push("/");
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        console.log("logged out")
+    };
+
 
     const menuItems = [
         { key: "Home", path: "/" },
@@ -65,7 +72,7 @@ export default function AdminLayout({ children }: Readonly<Children>) {
                 <div className="grid z-30 bg-primary gap-y-1 text-black fixed top-16 px-8 pt-2 pb-12 rounded-md left-1 text-lg font-bold">
                     {menuItems.map((menuItem, index) => (
                         <div key={index}>
-                            <Link href={menuItem.path} onClick={() => setIsMenuOpen(false)}>{menuItem.key}</Link>
+                            <Link href={menuItem.path === "logout"?"/":menuItem.path} onClick={() => setIsMenuOpen(false)}>{menuItem.key}</Link>
                             <hr className="border border-black" />
                         </div>
                     ))}
@@ -86,7 +93,9 @@ export default function AdminLayout({ children }: Readonly<Children>) {
                     <Link href="/dashboard/trainee/profile" className="flex items-center space-x-2 hover:bg-gray-800 py-2 px-3 rounded-lg">
                         <FaUser /> <span>Profile</span>
                     </Link>
-                    <Link href="#" className="flex items-center space-x-2 hover:bg-gray-800 py-2 px-3 rounded-lg text-red-400">
+                    <Link href="/"
+                        onClick={handleLogout}
+                    className="flex items-center space-x-2 hover:bg-gray-800 py-2 px-3 rounded-lg text-red-400">
                         <FaSignOutAlt /> <span>Logout</span>
                     </Link>
                 </nav>

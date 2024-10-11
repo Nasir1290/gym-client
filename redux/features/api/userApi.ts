@@ -19,6 +19,14 @@ const userApi = baseApi.injectEndpoints({
         };
       },
     }),
+    getAdmin: build.query({
+      query: () => {
+        return {
+          url: "/users/get-user/SUPER_ADMIN",
+          method: "GET",
+        };
+      },
+    }),
     getAllAdmin: build.query({
       query: (args) => {
         return {
@@ -49,4 +57,10 @@ const userApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {useCreateTrainerMutation,useGetTrainerQuery,useEditTrainerMutation,useDeleteTrainerMutation} = userApi;
+export const {
+  useCreateTrainerMutation,
+  useGetTrainerQuery,
+  useEditTrainerMutation,
+  useDeleteTrainerMutation,
+  useGetAdminQuery,
+} = userApi;

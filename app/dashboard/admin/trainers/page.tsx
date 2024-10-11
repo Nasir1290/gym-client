@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 import TrainerImage from "@/public/assets/images/ourService2.jpg"; // Placeholder image
 import Loading from "@/components/shared/Loading";
+import defaultProfilePic from "@/public/assets/images/hero-image.jpg";
 
 
 interface Trainer {
@@ -16,6 +17,7 @@ interface Trainer {
   _id: string;
   name: string;
   email: string;
+  password: string;
   expertise: string;
   profile: string;
   role: string;
@@ -29,12 +31,13 @@ export default function TrainerManagement() {
   const [ editingTrainer, setEditingTraine ] = useState<Trainer | null>(null);
   const [ editTrainer ] = useEditTrainerMutation();
   const [ deleteTrainer ] = useDeleteTrainerMutation();
-  const [ change, setChange ] = useState(false);
+  const [ profilePhoto, setProfilePhoto ] = useState<string>(defaultProfilePic.src);
+
 
   // State for the form inputs
   const [ formData, setFormData ] = useState({
     email: "",
-    password: "",
+    password: "11111111",
     name: "",
     expertise: "",
     role: "TRAINER",
@@ -129,7 +132,7 @@ export default function TrainerManagement() {
           toggleModal(); // Close modal after successful creation
         }
       } catch (error) {
-        toast.error(error?.data?.message || "Failed to create trainer");
+        toast.error( "Failed to create trainer");
       }
     }
 
@@ -152,13 +155,15 @@ export default function TrainerManagement() {
 
   // Handle edit trainer
   const handleEditTrainer = (trainer: Trainer) => {
-    const incomingFormData = {
+    const incomingFormData:Trainer | null = {
       id: trainer._id,
+      _id:trainer._id,
       email: trainer.email,
       password: "", // Do not fill password for security reasons
       name: trainer.name,
       expertise: trainer.expertise,
       role: trainer.role,
+      profile:""
     }
     setFormData(incomingFormData);
     setEditingTraine(incomingFormData); // Set the ID of the trainer being edited
@@ -206,7 +211,7 @@ export default function TrainerManagement() {
               <tr key={trainer.id} className="border-b">
                 <td className="p-4 text-center">
                   <Image
-                    src={`http://192.168.1.113:4000/${trainer.image}` || TrainerImage} // Use trainer's image if available, otherwise placeholder
+                    src={profilePhoto || defaultProfilePic.src}
                     alt={trainer.name}
                     width={48}
                     height={48}
@@ -302,6 +307,7 @@ export default function TrainerManagement() {
                   id="password"
                   name="password"
                   type="password"
+                  minLength={8} // Set the minimum length to 8 characters
                   disabled={!!editingTrainer}
                   value={formData.password}
                   onChange={handleInputChange}

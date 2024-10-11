@@ -55,6 +55,12 @@ export default function AdminLayout({ children }: Readonly<Children>) {
     }
 
 
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        router.push("/auth/login");
+    };
+
     return (
         <div className="min-h-screen">
             {/* Sidebar in small screen */}
@@ -87,7 +93,9 @@ export default function AdminLayout({ children }: Readonly<Children>) {
                     <Link href="/dashboard/trainer/profile" className="flex items-center space-x-2 hover:bg-gray-800 py-2 px-3 rounded-lg">
                         <FaUser /> <span>Profile</span>
                     </Link>
-                    <Link href="#" className="flex items-center space-x-2 hover:bg-gray-800 py-2 px-3 rounded-lg text-red-400">
+                    <Link
+                        onClick={handleLogout}
+                    href="/" className="flex items-center space-x-2 hover:bg-gray-800 py-2 px-3 rounded-lg text-red-400">
                         <FaSignOutAlt /> <span>Logout</span>
                     </Link>
                 </nav>
