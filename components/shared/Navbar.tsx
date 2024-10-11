@@ -1,11 +1,23 @@
-
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
 
 export default function Navbar() {
     const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+
+    // State to hold the user data (role)
+    const [ userRole, setUserRole ] = useState<string | null>(null);
+
+    // Use useEffect to retrieve and set user role from local storage
+    useEffect(() => {
+        const userInfo = localStorage?.getItem("user");
+        if (userInfo) {
+            const user = JSON.parse(userInfo);
+            setUserRole(user.role);
+        }
+    }, []); // Empty dependency array ensures this only runs once on component mount
+
     const menuItems = [
         { key: "Home", path: "/" },
         { key: "Contact", path: "/contact" },
@@ -49,9 +61,18 @@ export default function Navbar() {
 
                 {/* Right side */}
                 <div>
-                    <Link href={`/dashboard/trainee`} className="bg-primary text-black font-bold text-lg px-7 py-2 rounded mr-4">
-                        Dashboard
-                    </Link>
+                    {userRole ? (
+                        <Link
+                            href={`/dashboard/${userRole === "TRAINEE" ? "trainee" : userRole === "TRAINER" ? "trainer" : userRole === "SUPER_ADMIN" ? "admin" : ""}`}
+                            className="bg-primary text-black font-bold text-lg px-7 py-2 rounded mr-4"
+                        >
+                            Dashboard
+                        </Link>
+                    ) : (
+                        <Link href={`/auth/login`} className="bg-primary text-black font-bold text-lg px-7 py-2 rounded mr-4">
+                            Login
+                        </Link>
+                    )}
                 </div>
             </div>
         </header>

@@ -1,31 +1,53 @@
-'use client'
-import { useGetAllAdminQuery } from "@/redux/features/api/adminApi";
-import { useLoginUserMutation } from "@/redux/features/api/authApi";
+
+"use client"
+
+import { useState } from "react";
 import Link from "next/link";
+import { useLoginUserMutation } from "@/redux/features/api/authApi";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/redux/features/slices/authSlice";
+import { jwtDecode } from "jwt-decode";
+
+
 
 export default function LoginPage() {
+    const [ loginUser ] = useLoginUserMutation();
+    const router = useRouter();
+    const dispatch = useDispatch(); // To dispatch actions to the Redux store
+    const [ email, setEmail ] = useState('superadmin@gmail.com');
+    const [ password, setPassword ] = useState('superadmin');
 
-    const {data} = useGetAllAdminQuery([])
-    const [loginUser] = useLoginUserMutation()
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleSubmit = async (event: any) => {
+        event.preventDefault();
+        try {
+            const loginData = {
+                email,
+                password
+            };
+            const res = await loginUser(loginData).unwrap();
 
-const handleLoginUser= async()=>{
-    
-    const userData = {
-        email: "email.com",
-        password: "password"
-    }
-    const updatedData = {
-        id: 1,
-        data: userData
-    }
+            if (res.success) {
+                toast.success(res.message);
 
-    try {
-        const res = await loginUser(updatedData).unwrap()
-        console.log(res)
-    } catch (error) {
-        
-    }
-}
+                // Save token and user info to localStorage
+                const token = res.data.accessToken;
+                const decodedUserInformation = jwtDecode(token);
+                localStorage.setItem("user", JSON.stringify(decodedUserInformation)); // Save user info as string
+                localStorage.setItem("token", res.data.accessToken);
+
+                // Dispatch user info to Redux store
+                dispatch(setUser({user:decodedUserInformation }));
+
+                router.push('/');
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error("Invalid information !");
+        }
+    };
 
     return (
         <div className="min-h-screen bg-black flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -34,7 +56,7 @@ const handleLoginUser= async()=>{
                     <h2 className="text-center text-3xl font-extrabold text-white">Login to your account</h2>
                 </div>
 
-                <form className="mt-8 space-y-6" action="#" method="POST">
+                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                     <input type="hidden" name="remember" value="true" />
 
                     <div className="rounded-md shadow-sm -space-y-px">
@@ -48,6 +70,8 @@ const handleLoginUser= async()=>{
                                 type="email"
                                 autoComplete="email"
                                 required
+                                value={email} // Set value from state
+                                onChange={(e) => setEmail(e.target.value)} // Update state on input change
                                 className="rounded-lg relative block w-full px-3 py-2 bg-gray-800 text-white placeholder-gray-400 focus:ring-primary border-4 border-primary"
                                 placeholder="Email address"
                             />
@@ -62,6 +86,8 @@ const handleLoginUser= async()=>{
                                 type="password"
                                 autoComplete="current-password"
                                 required
+                                value={password} // Set value from state
+                                onChange={(e) => setPassword(e.target.value)} // Update state on input change
                                 className="rounded-lg relative block w-full px-3 py-2 bg-gray-800 text-white placeholder-gray-400 focus:ring-primary border-4 border-primary"
                                 placeholder="Password"
                             />
@@ -69,7 +95,6 @@ const handleLoginUser= async()=>{
                     </div>
 
                     <div className="flex items-center justify-between">
-
                         <div className="text-sm flex gap-4">
                             <div>
                                 Don&apos;t have an Account?
@@ -93,5 +118,3 @@ const handleLoginUser= async()=>{
         </div>
     )
 }
-
-

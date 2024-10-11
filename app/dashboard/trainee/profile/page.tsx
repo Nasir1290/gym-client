@@ -4,6 +4,7 @@ import Image from "next/image";
 import defaultProfilePic from "@/public/assets/images/ourService1.jpg"; // Replace with the path to your default profile image
 
 export default function TraineeProfilePage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [ profilePhoto, setProfilePhoto ] = useState<any>(defaultProfilePic);
   const [ name, setName ] = useState<string>("Admin Name");
   const [ currentPassword, setCurrentPassword ] = useState<string>("");

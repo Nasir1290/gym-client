@@ -9,6 +9,7 @@ interface GymClass {
     instructor: string;
     duration: string; // e.g., "60 minutes"
     schedule: string; // e.g., "Monday, 10:00 AM"
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image?: any;
 }
 
@@ -21,10 +22,6 @@ const dummyClasses: GymClass[] = [
 
 export default function ClassesPage() {
     const [ classes, setClasses ] = useState<GymClass[]>(dummyClasses);
-
-    const handleEdit = (id: number) => {
-        console.log('Edit Class:', id);
-    };
 
     const handleRemove = (id: number) => {
         const updatedClasses = classes.filter(gymClass => gymClass.id !== id);
@@ -40,12 +37,12 @@ export default function ClassesPage() {
         <div className="p-4 space-y-6">
             {/* Create Class Button */}
             <div className="flex justify-end">
-                <button
+                <div
                     className="bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white py-2 px-4 rounded-lg shadow-md"
                     onClick={handleCreate}
                 >
-                    Create Class
-                </button>
+                    Your Classes
+                </div>
             </div>
 
             {/* Classes List */}
@@ -70,12 +67,6 @@ export default function ClassesPage() {
                         </div>
 
                         <div className="mt-4 flex justify-between">
-                            <button
-                                className="bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded-lg shadow-md"
-                                onClick={() => handleEdit(gymClass.id)}
-                            >
-                                Edit
-                            </button>
                             <button
                                 className="bg-red-500 hover:bg-red-600 text-white py-1 px-3 rounded-lg shadow-md"
                                 onClick={() => handleRemove(gymClass.id)}

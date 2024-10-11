@@ -30,7 +30,7 @@ export default function NotFound({ reset }: Props) {
                         </button>
                         <Link
                             href={'/'}
-                            className="flex bg-primary text-black justify-center items-center"
+                            className="flex px-3 py-2 font-bold rounded-md bg-primary text-black justify-center items-center"
                         >
                             Take me home
                         </Link>

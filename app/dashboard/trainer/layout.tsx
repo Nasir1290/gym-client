@@ -1,7 +1,9 @@
 
 "use client"
+import Loading from '@/components/shared/Loading';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 import { FaHome, FaUser, FaSignOutAlt, FaBook } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
@@ -11,6 +13,31 @@ interface Children {
 
 export default function AdminLayout({ children }: Readonly<Children>) {
     const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+
+
+    const router = useRouter();
+    // State to hold the user data (role)
+    const [ userRole, setUserRole ] = useState<string | null>(null);
+
+    // Check if user is logged in and has the correct role
+    useEffect(() => {
+        const userInfo = localStorage?.getItem("user");
+
+        if (userInfo) {
+            const user = JSON.parse(userInfo);
+            setUserRole(user.role);
+
+            // Redirect if the user role is not "TRAINER"
+            if (user.role !== "TRAINER") {
+                router.push("/");
+            }
+        } else {
+            router.push("/"); // Redirect if no user info is found
+        }
+    }, [ router ]);
+
+
+
     const menuItems = [
         { key: "Home", path: "/" },
         { key: "Classes", path: "/dashboard/trainer/classes" },
@@ -21,6 +48,13 @@ export default function AdminLayout({ children }: Readonly<Children>) {
         setIsMenuOpen((prev) => !prev);
         console.log("clicked")
     };
+
+    if (!userRole) {
+        // Optionally show a loading screen while checking user role
+        return <Loading />;
+    }
+
+
     return (
         <div className="min-h-screen">
             {/* Sidebar in small screen */}
@@ -41,7 +75,7 @@ export default function AdminLayout({ children }: Readonly<Children>) {
             {/* Sidebar in large screen */}
             <div className="md:fixed md:top-2 md:left-2 w-full md:h-[calc(100vh-20px)] md:w-1/5 bg-gray-900 text-gray-300 p-3 hidden md:flex flex-col rounded-lg">
                 <div className="flex items-center justify-center h-16 mb-10">
-                    <h1 className="text-2xl font-bold text-white">Admin</h1>
+                    <h1 className="text-2xl font-bold text-white">TRAINER</h1>
                 </div>
                 <nav className="flex flex-col space-y-4">
                     <Link href="/" className="flex items-center space-x-2 hover:bg-gray-800 py-2 px-3 rounded-lg">

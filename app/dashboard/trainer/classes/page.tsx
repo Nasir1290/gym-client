@@ -9,6 +9,7 @@ interface GymClass {
     instructor: string;
     duration: string; // e.g., "60 minutes"
     schedule: string; // e.g., "Monday, 10:00 AM"
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image?: any;
 }
 
@@ -40,12 +41,12 @@ export default function ClassesPage() {
         <div className="p-4 space-y-6">
             {/* Create Class Button */}
             <div className="flex justify-end">
-                <button
+                <div
                     className="bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white py-2 px-4 rounded-lg shadow-md"
                     onClick={handleCreate}
                 >
-                    Create Class
-                </button>
+                    Your Classes
+                </div>
             </div>
 
             {/* Classes List */}
