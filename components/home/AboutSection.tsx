@@ -2,6 +2,7 @@ import Image from "next/image";
 import AboutSectionImage from "@/public/assets/images/hero-image.jpg";
 import { GiCheckMark } from "react-icons/gi";
 import { motion } from "framer-motion"; // Import Framer Motion
+import Link from "next/link";
 
 
 // components/AboutSection.js
@@ -72,9 +73,9 @@ const AboutSection = () => {
                         animate={{ opacity: 1, y: 0 }} // End position
                         transition={{ duration: 0.5, delay: 0.4 }} // Delay for the button
                     >
-                        <button className="bg-primary text-black font-bold text-lg px-7 py-2 rounded mr-4">
+                        <Link href={"/about"} className="bg-primary text-black font-bold text-lg px-7 py-2 rounded mr-4">
                             More About Us
-                        </button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>

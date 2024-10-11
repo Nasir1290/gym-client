@@ -55,7 +55,7 @@ export default function Navbar() {
         { key: "Home", path: "/" },
         { key: "Our Services", path: "/services" },
         { key: "Contact", path: "/contact" },
-        { key: "About Us", path: "/about" },
+        // { key: "About Us", path: "/about" },
     ];
 
     const toggleMenu = () => {

@@ -5,6 +5,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
+import image1 from "@/public/assets/images/ourService3.jpg";
+import image2 from "@/public/assets/images/ourService2.jpg";
+import image3 from "@/public/assets/images/ourService1.jpg";
+import Image from 'next/image';
 
 const About = () => {
     useEffect(() => {
@@ -79,6 +83,152 @@ const About = () => {
                 </motion.div>
             </section>
 
+            {/* Team Section */}
+            <section className="mb-16">
+                <motion.h2
+                    className="text-3xl font-bold text-center mb-12"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    Meet Our Team
+                </motion.h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <motion.div
+                        className="bg-gray-900 p-8 rounded-lg shadow-lg text-center"
+                        data-aos="fade-up"
+                    >
+                        <Image
+                            src={image1}
+                            alt="Trainer 1"
+                            className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
+                        />
+                        <h3 className="text-xl font-bold">Alice Johnson</h3>
+                        <p className="text-gray-400">Yoga Instructor</p>
+                    </motion.div>
+
+                    <motion.div
+                        className="bg-gray-900 p-8 rounded-lg shadow-lg text-center"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                    >
+                        <Image
+                            src={image2}
+                            alt="Trainer 2"
+                            className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
+                        />
+                        <h3 className="text-xl font-bold">John Doe</h3>
+                        <p className="text-gray-400">Strength Trainer</p>
+                    </motion.div>
+
+                    <motion.div
+                        className="bg-gray-900 p-8 rounded-lg shadow-lg text-center"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        <Image
+                            src={image3}
+                            alt="Trainer 3"
+                            className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
+                        />
+                        <h3 className="text-xl font-bold">Sarah Williams</h3>
+                        <p className="text-gray-400">Cardio Specialist</p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Extended Content Section */}
+            <section className="container mx-auto mt-16 px-6 md:px-0">
+                <motion.h2
+                    className="text-3xl font-bold text-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    Why Choose Us?
+                </motion.h2>
+                <motion.p
+                    className="mt-4 text-lg text-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 1 }}
+                >
+                    At ProGym, we provide not just fitness services, but a lifestyle. Our dedicated team and comprehensive approach ensure you get the best out of your fitness journey.
+                </motion.p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    {/* Feature 1 */}
+                    <motion.div
+                        className="bg-gray-900 p-6 rounded-lg shadow-lg"
+                        data-aos="fade-right"
+                    >
+                        <h3 className="text-xl font-bold">Customized Plans</h3>
+                        <p className="mt-4">
+                            Every individual is unique, and so are their fitness goals. Our programs are designed specifically to fit your body, schedule, and personal targets.
+                        </p>
+                    </motion.div>
+
+                    {/* Feature 2 */}
+                    <motion.div
+                        className="bg-gray-900 p-6 rounded-lg shadow-lg"
+                        data-aos="fade-left"
+                    >
+                        <h3 className="text-xl font-bold">World-Class Trainers</h3>
+                        <p className="mt-4">
+                            Learn from the best in the industry. Our certified trainers are not only experts in fitness but also passionate about helping you succeed.
+                        </p>
+                    </motion.div>
+
+                    {/* Feature 3 */}
+                    <motion.div
+                        className="bg-gray-900 p-6 rounded-lg shadow-lg"
+                        data-aos="fade-right"
+                    >
+                        <h3 className="text-xl font-bold">Modern Equipment</h3>
+                        <p className="mt-4">
+                            We offer state-of-the-art gym equipment for all your fitness needs, ensuring a safe and effective workout experience.
+                        </p>
+                    </motion.div>
+
+                    {/* Feature 4 */}
+                    <motion.div
+                        className="bg-gray-900 p-6 rounded-lg shadow-lg"
+                        data-aos="fade-left"
+                    >
+                        <h3 className="text-xl font-bold">Holistic Approach</h3>
+                        <p className="mt-4">
+                            At ProGym, we believe in a balanced approach to fitness. We focus on your physical, mental, and nutritional health to bring out the best version of you.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Call to Action */}
+            <section className="container mx-auto text-center py-16 mt-16 bg-gray-900 rounded-lg">
+                <motion.h2
+                    className="text-3xl font-bold"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    Ready to Begin Your Journey?
+                </motion.h2>
+                <motion.p
+                    className="mt-4 text-lg"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 1 }}
+                >
+                    Contact us today to schedule a free consultation with one of our certified trainers.
+                </motion.p>
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    className="mt-6 px-8 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-600"
+                >
+                    Get Started Now
+                </motion.button>
+            </section>
+
             {/* History Section */}
             <section className="mb-16">
                 <motion.div
@@ -130,60 +280,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Team Section */}
-            <section className="mb-16">
-                <motion.h2
-                    className="text-3xl font-bold text-center mb-12"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
-                >
-                    Meet Our Team
-                </motion.h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <motion.div
-                        className="bg-gray-900 p-8 rounded-lg shadow-lg text-center"
-                        data-aos="fade-up"
-                    >
-                        <img
-                            src="/trainer1.jpg" // Replace with real image path
-                            alt="Trainer 1"
-                            className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
-                        />
-                        <h3 className="text-xl font-bold">Alice Johnson</h3>
-                        <p className="text-gray-400">Yoga Instructor</p>
-                    </motion.div>
-
-                    <motion.div
-                        className="bg-gray-900 p-8 rounded-lg shadow-lg text-center"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                    >
-                        <img
-                            src="/trainer2.jpg" // Replace with real image path
-                            alt="Trainer 2"
-                            className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
-                        />
-                        <h3 className="text-xl font-bold">John Doe</h3>
-                        <p className="text-gray-400">Strength Trainer</p>
-                    </motion.div>
-
-                    <motion.div
-                        className="bg-gray-900 p-8 rounded-lg shadow-lg text-center"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                    >
-                        <img
-                            src="/trainer3.jpg" // Replace with real image path
-                            alt="Trainer 3"
-                            className="rounded-full mx-auto mb-4 w-32 h-32 object-cover"
-                        />
-                        <h3 className="text-xl font-bold">Sarah Williams</h3>
-                        <p className="text-gray-400">Cardio Specialist</p>
-                    </motion.div>
-                </div>
-            </section>
+           
 
             {/* Testimonials Section */}
             <section className="mb-16">
