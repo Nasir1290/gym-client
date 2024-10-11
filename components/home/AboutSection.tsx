@@ -8,7 +8,7 @@ import { motion } from "framer-motion"; // Import Framer Motion
 const AboutSection = () => {
 
     return (
-        <div className="w-full bg-black text-white">
+        <div className="w-full bg-black text-white container mx-auto">
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-20">
 
                 {/* Left Section: Image */}

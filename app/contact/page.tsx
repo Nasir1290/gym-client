@@ -4,7 +4,7 @@ import React from 'react'
 
 const ContactPage = () => {
     return (
-        <div>
+        <div className=' bg-gray-900 text-white'>
             <Navbar />
             <Contact />
         </div>

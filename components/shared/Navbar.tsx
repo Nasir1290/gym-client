@@ -53,8 +53,9 @@ export default function Navbar() {
 
     const menuItems = [
         { key: "Home", path: "/" },
-        { key: "About Us", path: "/about" },
+        { key: "Our Services", path: "/services" },
         { key: "Contact", path: "/contact" },
+        { key: "About Us", path: "/about" },
     ];
 
     const toggleMenu = () => {
@@ -62,7 +63,7 @@ export default function Navbar() {
     };
 
     return (
-        <header className="my-3 md:my-6">
+        <header className="py-3 md:py-6 container mx-auto">
             <div className="container flex justify-between items-center mx-auto">
                 {/* Left side */}
                 <Link
