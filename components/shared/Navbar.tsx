@@ -98,6 +98,7 @@ export default function Navbar() {
                                 <Link
                                     href={menuItem.path}
                                     onClick={() => setIsMenuOpen(false)}
+                                    className=" hover:text-primary"
                                 >
                                     {menuItem.key}
                                 </Link>
