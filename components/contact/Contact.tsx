@@ -16,7 +16,7 @@ const Contact = () => {
     return (
         <div className="bg-black text-white min-h-screen">
             {/* Hero Section */}
-            <section className="text-center py-16">
+            <section className="text-center py-16 container mx-auto">
                 <motion.h1
                     className="text-4xl font-bold"
                     initial={{ opacity: 0, y: -50 }}

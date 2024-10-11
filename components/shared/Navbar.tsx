@@ -81,7 +81,7 @@ export default function Navbar() {
                 {/* Middle section */}
                 {isMenuOpen ? (
                     <motion.div
-                        className="grid bg-primary gap-y-1 text-black fixed top-16 px-8 pt-2 pb-12 rounded-md left-1 text-lg font-bold"
+                        className="grid z-50 bg-primary gap-y-1 text-black fixed top-16 px-8 pt-2 pb-12 rounded-md left-1 text-lg font-bold"
                         initial="hidden"
                         animate="visible"
                         variants={menuVariants}
