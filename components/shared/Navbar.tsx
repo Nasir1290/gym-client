@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 // Animation variants for the menu and links
 const menuVariants = {
@@ -44,6 +45,13 @@ export default function Navbar() {
 
     // Use useEffect to retrieve and set user role from local storage
     useEffect(() => {
+        async function dummy() {
+            try {
+                await axios.get("https://gym-server-menagement.onrender.com/api/v1")
+            } catch (error) {
+                console.log("")
+            }
+        }
         const userInfo = localStorage?.getItem("user");
         if (userInfo) {
             const user = JSON.parse(userInfo);
@@ -139,12 +147,12 @@ export default function Navbar() {
                         <motion.div whileHover={{ scale: 1.05 }}>
                             <Link
                                 href={`/dashboard/${userRole === "TRAINEE"
-                                        ? "trainee"
-                                        : userRole === "TRAINER"
-                                            ? "trainer"
-                                            : userRole === "SUPER_ADMIN"
-                                                ? "admin"
-                                                : ""
+                                    ? "trainee"
+                                    : userRole === "TRAINER"
+                                        ? "trainer"
+                                        : userRole === "SUPER_ADMIN"
+                                            ? "admin"
+                                            : ""
                                     }`}
                                 className="bg-primary text-black font-bold text-lg px-7 py-2 rounded mr-4"
                             >
