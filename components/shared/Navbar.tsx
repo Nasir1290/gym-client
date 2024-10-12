@@ -47,7 +47,7 @@ export default function Navbar() {
     useEffect(() => {
         async function dummy() {
             try {
-                await axios.get("https://gym-server-menagement.onrender.com/api/v1")
+                await axios.get("https://gym-server-menagement.onrender.com/api/v1/users/get-user/TRAINEE")
                 console.log("gequest go and get response")
             } catch (error) {
                 console.log("request go")
