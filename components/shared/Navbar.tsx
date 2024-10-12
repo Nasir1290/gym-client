@@ -48,10 +48,14 @@ export default function Navbar() {
         async function dummy() {
             try {
                 await axios.get("https://gym-server-menagement.onrender.com/api/v1")
+                console.log("gequest go and get response")
             } catch (error) {
-                console.log("")
+                console.log("request go")
             }
         }
+        console.log("use effect has been run successfully")
+        dummy();
+
         const userInfo = localStorage?.getItem("user");
         if (userInfo) {
             const user = JSON.parse(userInfo);
