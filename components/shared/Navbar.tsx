@@ -4,6 +4,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { FaSignOutAlt } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 // Animation variants for the menu and links
 const menuVariants = {
@@ -39,10 +41,10 @@ const linkVariants = {
 
 export default function Navbar() {
     const [ isMenuOpen, setIsMenuOpen ] = useState(false);
-
+    const router = useRouter();
     // State to hold the user data (role)
     const [ userRole, setUserRole ] = useState<string | null>(null);
-
+console.log(userRole)
     // Use useEffect to retrieve and set user role from local storage
     useEffect(() => {
         async function dummy() {
@@ -74,8 +76,17 @@ export default function Navbar() {
         setIsMenuOpen((prev) => !prev);
     };
 
+    const handleLogout = () => {
+        router.push("/");
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setUserRole(null);
+        console.log("logged out")
+    };
+
+
     return (
-        <header className="py-3 md:py-6 container mx-auto">
+        <header className="py-3 md:py-4 w-full bg-gray-700 rounded-b-md">
             <div className="container flex justify-between items-center mx-auto">
                 {/* Left side */}
                 <Link
@@ -132,10 +143,11 @@ export default function Navbar() {
                                 initial="hidden"
                                 animate="visible"
                                 variants={linkVariants}
+                                className=" flex gap-3 justify-center items-center"
                             >
                                 <Link
                                     href={menuItem.path}
-                                    className="cursor-pointer"
+                                    className="cursor-pointer px-3 py-2 rounded-md text-black bg-white hover:text-blue-500 hover:scale-105 transition-all"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {menuItem.key}
@@ -148,7 +160,14 @@ export default function Navbar() {
                 {/* Right side */}
                 <div>
                     {userRole ? (
-                        <motion.div whileHover={{ scale: 1.05 }}>
+                        <motion.div
+                        className="flex gap-3 items-center justify-center"
+                        >
+                            <Link href="/"
+                                onClick={handleLogout}
+                                className="flex items-center space-x-2 hover:scale-105 transition-all bg-red-500 hover:bg-red-600 py-2 px-3 rounded-lg text-black font-semibold">
+                                <FaSignOutAlt /> <span>Logout</span>
+                            </Link>
                             <Link
                                 href={`/dashboard/${userRole === "TRAINEE"
                                     ? "trainee"
@@ -158,7 +177,7 @@ export default function Navbar() {
                                             ? "admin"
                                             : ""
                                     }`}
-                                className="bg-primary text-black font-bold text-lg px-7 py-2 rounded mr-4"
+                                className="bg-primary hover:scale-105 transition-all text-black font-bold text-lg px-7 py-2 rounded mr-4"
                             >
                                 Dashboard
                             </Link>
