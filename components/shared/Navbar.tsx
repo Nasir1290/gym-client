@@ -86,7 +86,7 @@ console.log(userRole)
 
 
     return (
-        <header className="py-3 md:py-4 w-full bg-gray-700 rounded-b-md">
+        <header className="py-3 md:py-4 w-full mx-auto md:bg-gray-700 rounded-b-md block">
             <div className="container flex justify-between items-center mx-auto">
                 {/* Left side */}
                 <Link
@@ -177,7 +177,7 @@ console.log(userRole)
                                             ? "admin"
                                             : ""
                                     }`}
-                                className="bg-primary hover:scale-105 transition-all text-black font-bold text-lg px-7 py-2 rounded mr-4"
+                                className="bg-primary hover:scale-105 transition-all text-black font-bold text-lg px-3 md:px-7 py-2 rounded mr-2 md:mr-4"
                             >
                                 Dashboard
                             </Link>

@@ -17,11 +17,13 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <WellnessSection />
-      <Pricing />
+      <div className="">
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <WellnessSection />
+        <Pricing />
+      </div>
       <Footer />
     </div>
   );

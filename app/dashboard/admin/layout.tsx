@@ -41,7 +41,7 @@ export default function AdminLayout({ children }: Readonly<Children>) {
         { key: "Classes", path: "/dashboard/admin/classes" },
         { key: "Trainers", path: "/dashboard/admin/trainers" },
         { key: "Profile", path: "/dashboard/admin/profile" },
-        { key: "Logout", path: "/logout" },
+        { key: "Logout", path: "logout" },
     ];
 
     const toggleMenu = () => {
@@ -51,7 +51,7 @@ export default function AdminLayout({ children }: Readonly<Children>) {
     const handleLogout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
-        router.push("/auth/login");
+        router.push("/");
     };
 
     if (!userRole) {
@@ -71,7 +71,12 @@ export default function AdminLayout({ children }: Readonly<Children>) {
                 <div className="grid z-30 bg-primary gap-y-1 text-black fixed top-16 px-8 pt-2 pb-12 rounded-md left-1 text-lg font-bold">
                     {menuItems.map((menuItem, index) => (
                         <div key={index}>
-                            <Link href={menuItem.path} onClick={() => setIsMenuOpen(false)}>
+                            <Link href={menuItem.path === "logout" ? "/" : menuItem.path} onClick={() => {
+                                setIsMenuOpen(false)
+                                if (menuItem.path === "logout") {
+                                    handleLogout();
+                                }
+                            }}>
                                 {menuItem.key}
                             </Link>
                             <hr className="border border-black" />
