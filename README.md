@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Title: Your Project Name
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Briefly describe your project here. Include details about its purpose, key features, and technologies used. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Feature 1
+- Feature 2
+- Feature 3
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Live Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You can access the live version of the project here: [Live Link](https://gym-management-ecru.vercel.app/)
 
-## Learn More
+## Admin Credentials
 
-To learn more about Next.js, take a look at the following resources:
+For testing purposes, you can use the following admin credentials:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Admin Email:** superadmin@gmail.com
+- **Admin Password:** superadmin
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Entity-Relationship (ER) Diagram
 
-## Deploy on Vercel
+Here is the ER diagram of the project to help visualize the database structure.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![ER Diagram](./public/assets/images/er-diagram.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Installation and Setup
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Nasir1290/gym-client.git
+    ```
+3. Install dependencies:
+    ```bash
+    yarn add
+    ```
+
+5. Start the application:
+    ```bash
+    yarn dev
+    ```
+
+## Tech Stack
+
+- **Frontend:** React, Next.js
+- **Backend:** Node.js, Express
+- **Database:** MongoDB
+- **ORM:** Mongoose
+- **Validation:** Zod
+
+## Contributing
+
+If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+
+## Contact
+
+For any inquiries, feel free to contact:
+
+
+---
+
+Made with ❤️ by [Nasir Mollah](https://nasirmollah.vercel.app)
