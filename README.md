@@ -1,15 +1,4 @@
-# Project Title: Your Project Name
-
-## Overview
-
-Briefly describe your project here. Include details about its purpose, key features, and technologies used. 
-
-## Features
-
-- Feature 1
-- Feature 2
-- Feature 3
-
+# Project Title: Gym Management System
 ## Live Demo
 
 You can access the live version of the project here: [Live Link](https://gym-management-ecru.vercel.app/)
